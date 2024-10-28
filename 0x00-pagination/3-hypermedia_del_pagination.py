@@ -43,6 +43,7 @@ class Server:
         Get hypermedia pagination for a given index and page size.
         """
         assert isinstance(index, int)
+        assert index < len(self.dataset())
         next_index = index + page_size
         data = self.dataset()[index:next_index]
         return {
