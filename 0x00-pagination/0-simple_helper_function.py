@@ -4,6 +4,7 @@ page numbers
 """
 from typing import Tuple
 
+
 def index_range(page: int, page_size: int) -> Tuple:
     """
     Returns the index range for a given page and page size.
