@@ -23,7 +23,11 @@ class FIFOCache(BaseCaching):
         Put item into cache
         """
         if key is not None and item is not None:
-            if (len(self.queue) < BaseCaching.MAX_ITEMS) or key in self.queue:
+            if key in self.queue:
+                self.cache_data[key] = item
+                self.queue.remove(key)
+                self.queue.append(key)
+            elif (len(self.queue) < BaseCaching.MAX_ITEMS):
                 self.queue.append(key)
                 self.cache_data[key] = item
             else:
