@@ -4,10 +4,13 @@ basic cache
 """
 
 
-BaseCaching = __import__('base_caching').BaseCaching
+from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
+    """
+    Basic cache implementation
+    """
     def put(self, key: str, item: str) -> None:
         """
         Put item into cache
