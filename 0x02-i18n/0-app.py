@@ -3,10 +3,11 @@
 simple flask app
 """
 
-from flask import Flask, request, jsonify, template_rendered
+from flask import Flask, template_rendered
 import os
 
 app = Flask(__name__)
+
 
 @app.route('/')
 def index():
