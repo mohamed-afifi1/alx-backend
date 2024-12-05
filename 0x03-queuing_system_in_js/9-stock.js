@@ -42,20 +42,12 @@ const app = express();
 const client = createClient();
 const PORT = 1245;
 
-/**
- * Modifies the reserved stock for a given item.
- * @param {number} itemId - The id of the item.
- * @param {number} stock - The stock of the item.
- */
+
 const reserveStockById = async (itemId, stock) => {
   return promisify(client.SET).bind(client)(`item.${itemId}`, stock);
 };
 
-/**
- * Retrieves the reserved stock for a given item.
- * @param {number} itemId - The id of the item.
- * @returns {Promise<String>}
- */
+
 const getCurrentReservedStockById = async (itemId) => {
   return promisify(client.GET).bind(client)(`item.${itemId}`);
 };
